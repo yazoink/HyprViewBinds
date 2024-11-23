@@ -98,7 +98,7 @@ def get_sorted_binds_array(unsorted_binds):
     sorted_binds["windows"] = []
     sorted_binds["workspaces"] = []
     sorted_binds["media"] = []
-    media_action_regex = r'.*(amixer|volume|wpctl|playerctl|brightness|light|brillo|audio).*'
+    r = r'.*(amixer|volume|wpctl|playerctl|brightness|light|b""rillo|audio).*'
 
     for u in unsorted_binds:
         if "workspace" in u["action"].lower():
@@ -109,7 +109,7 @@ def get_sorted_binds_array(unsorted_binds):
             sorted_binds["media"].append(u)
             continue
 
-        if re.search(media_action_regex, u["action"].lower()):
+        if re.search(r, u["action"].lower()):
                 sorted_binds["media"].append(u)
                 continue
 
@@ -141,7 +141,10 @@ def get_unsorted_binds_array():
             else:
                 unsorted_binds[i]["bind"] += binds_json[i]["key"]
         elif binds_json[i]["keycode"]:
-            unsorted_binds[i]["bind"] += "keycode:" + str(binds_json[i]["keycode"])
+            unsorted_binds[i]["bind"] += (
+                "keycode:" 
+                + str(binds_json[i]["keycode"])
+            )
 
         if binds_json[i]["dispatcher"]:
             unsorted_binds[i]["action"] += binds_json[i]["dispatcher"]
@@ -185,7 +188,7 @@ def render_tree_view_column(tree_view, name, index):
     renderer = Gtk.CellRendererText()
     bind_column = Gtk.TreeViewColumn(name)
     bind_column.pack_start(renderer, True)
-    bind_column.add_attribute(renderer, "text", index) # column index 0
+    bind_column.add_attribute(renderer, "text", index)
     tree_view.append_column(bind_column)
 
 
