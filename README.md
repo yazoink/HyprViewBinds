@@ -12,7 +12,7 @@ A simple GTK3 GUI for quickly viewing all of your current Hyprland keybinds.
 - Copy `hyprviewbinds.py` to `/usr/bin`
 - Copy `hyprviewbinds.desktop` to `/usr/share/applications`
 
-### NixOS
+### NixOS (home-manager)
 I don't know the proper way to do this but this is how I installed it
 
 #### Module Directory Structure
