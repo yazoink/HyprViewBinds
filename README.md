@@ -28,7 +28,6 @@ hyprviewbinds
 
 #### default.nix
 ```nix
-{ pkgs, ... }:
 let
   hyprviewbinds = pkgs.callPackage ./hyprviewbinds.nix {};
 in
