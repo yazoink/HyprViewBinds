@@ -9,7 +9,6 @@ import sys
 
 
 def main():
-    print("?")
     win = Gtk.Window(title="HyprViewBinds")
     win.set_default_size(500, 300)
     win.set_border_width(15)
