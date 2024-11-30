@@ -1,5 +1,3 @@
-# nix-shell -p python312Packages.pygobject3 gtk3 gobject-introspection --command zsh
-
 #!/usr/bin/env python3
 import gi
 gi.require_version("Gtk", "3.0")
@@ -11,6 +9,7 @@ import sys
 
 
 def main():
+    print("?")
     win = Gtk.Window(title="HyprViewBinds")
     win.set_default_size(500, 300)
     win.set_border_width(15)
